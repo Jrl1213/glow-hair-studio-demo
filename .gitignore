@@ -1,0 +1,11 @@
+node_modules
+.next
+out
+.vercel
+coverage
+.turbo
+*.tsbuildinfo
+.env*
+*.log
+.DS_Store
+Thumbs.db

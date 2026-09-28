@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #302820;
+  --muted: #766d64;
+  --paper: #f8f5f0;
+  --cream: #f0e9e1;
+  --accent: #a7583e;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+}
+::selection {
+  background: #ddc7b4;
+  color: var(--ink);
+}
+section[id] {
+  scroll-margin-top: 88px;
+}
+
+.display {
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: -0.055em;
+  font-weight: 400;
+}
+.eyebrow {
+  letter-spacing: 0.23em;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+@media (max-width: 639px) {
+  .eyebrow {
+    font-size: 0.75rem;
+  }
+  main p.text-sm {
+    font-size: 0.9375rem;
+  }
+}
+.fine-rule {
+  height: 1px;
+  background: rgba(48, 40, 32, 0.17);
+}
+.photo-frame {
+  position: relative;
+  overflow: hidden;
+  background: #d8c6b4;
+}
+.photo-frame img {
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.photo-frame:hover img {
+  transform: scale(1.035);
+}
+.dot-grid {
+  background-image: radial-gradient(
+    rgba(48, 40, 32, 0.16) 1px,
+    transparent 1px
+  );
+  background-size: 15px 15px;
+}
+.soft-reveal {
+  animation: rise-in 0.7s ease both;
+}
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .soft-reveal {
+    animation: none;
+  }
+  .photo-frame img {
+    transition: none;
+  }
+}
