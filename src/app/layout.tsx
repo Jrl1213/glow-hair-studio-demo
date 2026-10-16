@@ -3,8 +3,8 @@ import "./globals.css";
 import { business } from "@/config/business";
 
 export const metadata: Metadata = {
-  title: `${business.name} | Hair Salon in ${business.address}`,
-  description: `Discover cuts, colour, treatments and easy WhatsApp booking at ${business.name}, a hair salon demo in ${business.address}.`,
+  title: `${business.name} | ${business.category} in ${business.address}`,
+  description: business.copy.seoDescription,
   robots: { index: false, follow: false },
 };
 

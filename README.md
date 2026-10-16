@@ -13,7 +13,9 @@ Use `npm run typecheck` to check TypeScript and `npm run build` to check the pro
 
 ## Edit the demo
 
-Edit `src/config/business.ts` for the business name, WhatsApp number, message, services, prices, hours, address, and photo paths. **The number `60123456789` is only a placeholder**; replace that one value before using real bookings. Use a Malaysian number with country code `60` and no `+`, spaces, or leading `0`.
+Edit `src/config/business.ts` for the business name, category, WhatsApp number and message, services and prices, opening hours, address, photos, and page wording. The `copy` section holds the headings and descriptions; `benefits`, `reviews`, and `faqs` hold the repeated content. **The number `60123456789` is only a placeholder**; replace that one value before using real bookings. Use a Malaysian number with country code `60` and no `+`, spaces, or leading `0`.
+
+To adapt this for a different business category, edit that one config file and replace the demo images. Review every section after changing the content: the one-page layout and warm visual style are still tailored to a service business, so some categories may need a separate design pass.
 
 Replace the files in `public/images/` with your own images. Keep the filenames, or change the paths in `src/config/business.ts`. The supplied images are generated demo imagery and should be replaced for a real business.
 

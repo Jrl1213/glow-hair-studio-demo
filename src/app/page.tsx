@@ -66,78 +66,6 @@ function BookingLink({
   );
 }
 
-const benefits = [
-  {
-    number: "01",
-    title: "Experienced stylists",
-    copy: "A considered approach to every cut, colour, and finishing touch.",
-  },
-  {
-    number: "02",
-    title: "Quality products",
-    copy: "Thoughtful product choices to help your hair look and feel its best.",
-  },
-  {
-    number: "03",
-    title: "Comfortable studio",
-    copy: "A calm space where you can settle in and enjoy the moment.",
-  },
-  {
-    number: "04",
-    title: "Easy booking",
-    copy: "Just send us a WhatsApp message and we’ll help you find a time.",
-  },
-];
-
-const reviews = [
-  {
-    quote:
-      "Exactly the refresh I needed. The whole visit felt relaxed and my hair looked lovely.",
-    name: "Aina",
-    service: "Haircut",
-  },
-  {
-    quote:
-      "The colour turned out soft and natural. I would happily come back for another appointment.",
-    name: "Mei Ling",
-    service: "Hair Colour",
-  },
-  {
-    quote:
-      "Easy to book, welcoming from the start, and such a nice finish after my wash and blow.",
-    name: "Priya",
-    service: "Wash & Blow",
-  },
-];
-
-const faqs = [
-  {
-    question: "Do you accept walk-ins?",
-    answer:
-      "Walk-ins are welcome when a stylist is available. Messaging us on WhatsApp first is the easiest way to avoid a wait.",
-  },
-  {
-    question: "How do I make an appointment?",
-    answer:
-      "Tap any Book on WhatsApp button, tell us the service you have in mind, and share your preferred day and time.",
-  },
-  {
-    question: "Is parking available?",
-    answer:
-      "Parking options vary around Cyberjaya. Ask us for the latest parking details when you book.",
-  },
-  {
-    question: "Can I get a quote for hair colouring?",
-    answer:
-      "Yes. Colour starts from RM120. The final price depends on hair length, condition, and the look you want, so send us a photo for guidance.",
-  },
-  {
-    question: "What payment methods do you accept?",
-    answer:
-      "Please confirm current payment options with us on WhatsApp before your visit.",
-  },
-];
-
 export default function Home() {
   return (
     <main>
@@ -185,12 +113,14 @@ export default function Home() {
           <div className="soft-reveal flex flex-col justify-center px-5 py-16 sm:px-8 sm:py-20 lg:px-16 lg:py-24">
             <div className="mb-9 flex items-center gap-3 text-[#a7583e]">
               <span className="h-px w-7 bg-[#a7583e]" />
-              <span className="eyebrow">Your hair, your moment</span>
+              <span className="eyebrow">{business.copy.hero.eyebrow}</span>
             </div>
             <h1 className="display max-w-[720px] text-[clamp(3.65rem,7vw,7.9rem)] leading-[.98]">
-              Feel good
+              {business.copy.hero.headline}
               <br />
-              <em className="font-normal text-[#a7583e]">in your hair.</em>
+              <em className="font-normal text-[#a7583e]">
+                {business.copy.hero.emphasis}
+              </em>
             </h1>
             <p className="mt-7 max-w-[450px] text-base leading-8 text-[#685e55] sm:text-lg">
               {business.description}
@@ -206,27 +136,31 @@ export default function Home() {
             </div>
             <div className="mt-14 flex items-center gap-4 border-t border-[#d8cabc] pt-6 text-[13px] tracking-[.14em] text-[#756a60] uppercase sm:mt-20 sm:text-xs">
               <span className="h-2 w-2 rounded-full bg-[#a7583e]" />{" "}
-              {business.address} <span className="h-px w-7 bg-[#c8b6a7]" /> Open
-              daily
+              {business.address} <span className="h-px w-7 bg-[#c8b6a7]" />{" "}
+              {business.hours.shortLabel}
             </div>
           </div>
           <div className="relative min-h-[480px] bg-[#d7c2b0] sm:min-h-[590px] lg:min-h-full">
             <Image
               src={business.photos.hero}
-              alt="Demo salon portrait showing a finished hairstyle"
+              alt={business.copy.hero.photoAlt}
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 48vw"
               className="object-cover object-[center_38%]"
             />
             <div className="absolute bottom-5 left-5 rounded-sm bg-[#f8f5f0]/95 px-5 py-4 shadow-sm sm:bottom-8 sm:left-8">
-              <p className="eyebrow text-[#a7583e]">A little time for you</p>
-              <p className="display mt-1 text-2xl italic">Leave glowing.</p>
+              <p className="eyebrow text-[#a7583e]">
+                {business.copy.hero.photoCaptionLabel}
+              </p>
+              <p className="display mt-1 text-2xl italic">
+                {business.copy.hero.photoCaption}
+              </p>
             </div>
             <div className="absolute right-5 top-5 flex h-20 w-20 rotate-12 items-center justify-center rounded-full border border-[#f8f5f0]/80 bg-[#a7583e] text-center text-[9px] font-bold uppercase leading-4 tracking-[.12em] text-white sm:right-8 sm:top-8 sm:h-24 sm:w-24">
-              Good hair
+              {business.copy.hero.photoBadge[0]}
               <br />
-              energy
+              {business.copy.hero.photoBadge[1]}
             </div>
           </div>
         </div>
@@ -236,16 +170,17 @@ export default function Home() {
         <div className="mx-auto max-w-[1280px]">
           <div className="grid gap-8 md:grid-cols-[1fr_1fr] md:items-end">
             <div>
-              <p className="eyebrow text-[#a7583e]">The menu</p>
+              <p className="eyebrow text-[#a7583e]">
+                {business.copy.services.eyebrow}
+              </p>
               <h2 className="display mt-4 text-5xl leading-[1.05] sm:text-6xl">
-                A little care,
+                {business.copy.services.headline}
                 <br />
-                <em>a lot of confidence.</em>
+                <em>{business.copy.services.emphasis}</em>
               </h2>
             </div>
             <p className="max-w-[390px] text-sm leading-7 text-[#766d64] md:justify-self-end">
-              From a simple refresh to a new look, our services are designed to
-              help you feel like yourself, only brighter.
+              {business.copy.services.intro}
             </p>
           </div>
           <div className="mt-12 grid gap-4 md:grid-cols-2">
@@ -274,8 +209,7 @@ export default function Home() {
             ))}
           </div>
           <p className="mt-5 text-[13px] leading-5 text-[#8a8076] sm:text-xs">
-            Prices shown are for this fictional demo. Colour and treatment
-            prices may vary by hair length and consultation.
+            {business.copy.services.priceNote}
           </p>
         </div>
       </section>
@@ -284,26 +218,28 @@ export default function Home() {
         <div className="mx-auto max-w-[1280px]">
           <div className="grid gap-5 sm:gap-7 md:grid-cols-[1fr_1fr] md:items-end">
             <div>
-              <p className="eyebrow text-[#d2a28a]">Why Glow</p>
+              <p className="eyebrow text-[#d2a28a]">
+                {business.copy.why.eyebrow}
+              </p>
               <h2 className="display mt-4 text-5xl sm:text-6xl">
-                More than
+                {business.copy.why.headline}
                 <br />
-                <em>good hair.</em>
+                <em>{business.copy.why.emphasis}</em>
               </h2>
             </div>
             <p className="max-w-[390px] text-sm leading-7 text-[#c8bdb1] md:justify-self-end">
-              The small things make the whole visit. Come as you are, and leave
-              with a little extra glow.
+              {business.copy.why.intro}
             </p>
           </div>
           <div className="mt-8 grid border-t border-white/20 sm:mt-12 sm:grid-cols-2 lg:grid-cols-4">
-            {benefits.map((benefit) => (
+            {business.benefits.map((benefit, index) => (
               <div
-                key={benefit.number}
+                key={benefit.title}
                 className="border-b border-white/20 py-5 pr-8 sm:py-7 sm:pr-10 lg:border-r lg:pl-6 lg:first:pl-0 lg:last:border-r-0"
               >
                 <span className="text-[13px] tracking-widest text-[#d2a28a] sm:text-xs">
-                  {benefit.number} / 04
+                  {String(index + 1).padStart(2, "0")} /{" "}
+                  {String(business.benefits.length).padStart(2, "0")}
                 </span>
                 <h3 className="display mt-3 text-[1.7rem] sm:mt-7">
                   {benefit.title}
@@ -321,14 +257,16 @@ export default function Home() {
         <div className="mx-auto max-w-[1280px]">
           <div className="flex flex-wrap items-end justify-between gap-5">
             <div>
-              <p className="eyebrow text-[#a7583e]">Inside Glow</p>
+              <p className="eyebrow text-[#a7583e]">
+                {business.copy.gallery.eyebrow}
+              </p>
               <h2 className="display mt-4 text-5xl sm:text-6xl">
-                A glimpse of <em>the good stuff.</em>
+                {business.copy.gallery.headline}{" "}
+                <em>{business.copy.gallery.emphasis}</em>
               </h2>
             </div>
             <span className="max-w-[240px] text-[13px] leading-5 text-[#8a8076] sm:text-xs">
-              Demo imagery. Replace with your salon and client photos before
-              launch.
+              {business.copy.gallery.note}
             </span>
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-3">
@@ -347,7 +285,10 @@ export default function Home() {
                   />
                 </div>
                 <figcaption className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#221b15]/75 to-transparent px-5 pb-5 pt-16 text-white">
-                  <span className="eyebrow">0{index + 1} / Glow moments</span>
+                  <span className="eyebrow">
+                    {String(index + 1).padStart(2, "0")} /{" "}
+                    {business.copy.gallery.caption}
+                  </span>
                   <p className="display mt-1 text-3xl">{photo.label}</p>
                 </figcaption>
               </figure>
@@ -360,18 +301,20 @@ export default function Home() {
         <div className="mx-auto max-w-[1280px]">
           <div className="flex flex-wrap items-end justify-between gap-5">
             <div>
-              <p className="eyebrow text-[#a7583e]">The experience</p>
+              <p className="eyebrow text-[#a7583e]">
+                {business.copy.reviews.eyebrow}
+              </p>
               <h2 className="display mt-4 text-5xl sm:text-6xl">
-                Kind words, <em>for the demo.</em>
+                {business.copy.reviews.headline}{" "}
+                <em>{business.copy.reviews.emphasis}</em>
               </h2>
             </div>
             <p className="max-w-[340px] text-xs leading-6 text-[#766d64]">
-              The reviews below are fictional examples for this website demo.
-              They are not real customer testimonials.
+              {business.copy.reviews.disclaimer}
             </p>
           </div>
           <div className="mt-10 grid gap-4 md:grid-cols-3">
-            {reviews.map((review) => (
+            {business.reviews.map((review) => (
               <article key={review.name} className="bg-[#f8f5f0] p-7 sm:p-9">
                 <div
                   aria-hidden="true"
@@ -401,37 +344,36 @@ export default function Home() {
           <div className="relative min-h-[340px] overflow-hidden bg-[#d9c5b5] sm:min-h-[460px]">
             <Image
               src={business.photos.gallery[2].src}
-              alt="Demo photograph of a welcoming hair studio"
+              alt={business.copy.about.photoAlt}
               fill
               sizes="(max-width: 1024px) 100vw, 40vw"
               className="object-cover"
             />
             <div className="absolute bottom-6 right-6 rounded-full border border-white/80 bg-[#f8f5f0]/95 px-5 py-3 text-xs font-bold uppercase tracking-[.15em]">
-              Come as you are
+              {business.copy.about.photoBadge}
             </div>
           </div>
           <div>
-            <p className="eyebrow text-[#a7583e]">Hello, from Glow</p>
+            <p className="eyebrow text-[#a7583e]">
+              {business.copy.about.eyebrow}
+            </p>
             <h2 className="display mt-5 text-5xl leading-[1.06] sm:text-6xl">
-              A welcoming space
+              {business.copy.about.headline}
               <br />
-              for <em>your kind of beautiful.</em>
+              {business.copy.about.secondLine}{" "}
+              <em>{business.copy.about.emphasis}</em>
             </h2>
             <p className="mt-8 max-w-[530px] text-base leading-8 text-[#685e55]">
-              {business.name} is a fictional neighbourhood salon in Cyberjaya,
-              created for this demo. It imagines a relaxed place for thoughtful
-              haircuts, flattering colour, and small moments of care.
+              {business.copy.about.paragraphs[0]}
             </p>
             <p className="mt-4 max-w-[530px] text-base leading-8 text-[#685e55]">
-              Whether you know exactly what you want or want a little guidance,
-              the goal is simple: great hair and an experience that feels easy
-              from first message to final mirror check.
+              {business.copy.about.paragraphs[1]}
             </p>
             <a
               href="#location"
               className="mt-8 inline-flex items-center gap-3 text-sm font-bold text-[#a7583e] underline underline-offset-8"
             >
-              Find us in Cyberjaya <ArrowIcon />
+              {business.copy.about.locationLink} <ArrowIcon />
             </a>
           </div>
         </div>
@@ -443,15 +385,16 @@ export default function Home() {
       >
         <div className="mx-auto grid max-w-[1280px] gap-10 md:grid-cols-2 md:gap-16">
           <div>
-            <p className="eyebrow text-[#a7583e]">Visit us</p>
+            <p className="eyebrow text-[#a7583e]">
+              {business.copy.location.eyebrow}
+            </p>
             <h2 className="display mt-4 text-5xl sm:text-6xl">
-              Your next good
+              {business.copy.location.headline}
               <br />
-              <em>hair day is close.</em>
+              <em>{business.copy.location.emphasis}</em>
             </h2>
             <p className="mt-6 max-w-[470px] text-sm leading-7 text-[#766d64]">
-              Find this demo salon in Cyberjaya. The location is intentionally
-              broad until a real business address is added.
+              {business.copy.location.intro}
             </p>
             <div className="mt-9 grid gap-7 border-t border-[#d5c8b9] pt-8 sm:grid-cols-2">
               <div>
@@ -484,7 +427,9 @@ export default function Home() {
             <div className="absolute bottom-0 left-[45%] top-0 w-px rotate-[24deg] bg-[#b99c86]/50" />
             <div className="relative">
               <p className="eyebrow text-[#795943]">Find your way to</p>
-              <p className="display mt-3 text-4xl sm:text-5xl">Cyberjaya</p>
+              <p className="display mt-3 text-4xl sm:text-5xl">
+                {business.copy.location.mapCity}
+              </p>
             </div>
             <div className="relative flex items-end justify-between">
               <span className="flex h-14 w-14 items-center justify-center rounded-full bg-[#a7583e] text-white shadow-lg">
@@ -501,7 +446,7 @@ export default function Home() {
                 </svg>
               </span>
               <span className="rounded-sm bg-[#f8f5f0] px-3 py-2 text-xs font-bold uppercase tracking-widest">
-                Selangor, MY
+                {business.copy.location.mapRegion}
               </span>
             </div>
           </div>
@@ -511,13 +456,14 @@ export default function Home() {
       <section id="faq" className="px-5 py-20 sm:px-8 sm:py-28 lg:px-16">
         <div className="mx-auto grid max-w-[1280px] gap-10 lg:grid-cols-[.8fr_1.2fr] lg:gap-24">
           <div>
-            <p className="eyebrow text-[#a7583e]">Before you visit</p>
+            <p className="eyebrow text-[#a7583e]">
+              {business.copy.faq.eyebrow}
+            </p>
             <h2 className="display mt-4 text-5xl sm:text-6xl">
-              Good to <em>know.</em>
+              {business.copy.faq.headline} <em>{business.copy.faq.emphasis}</em>
             </h2>
             <p className="mt-6 max-w-[300px] text-sm leading-7 text-[#766d64]">
-              A few quick answers before your appointment. Still wondering? Send
-              us a message.
+              {business.copy.faq.intro}
             </p>
             <a
               href={whatsappUrl}
@@ -529,7 +475,7 @@ export default function Home() {
             </a>
           </div>
           <div className="border-t border-[#d9cfc3]">
-            {faqs.map((faq) => (
+            {business.faqs.map((faq) => (
               <details
                 key={faq.question}
                 className="group border-b border-[#d9cfc3] py-6"
@@ -554,14 +500,16 @@ export default function Home() {
 
       <section className="bg-[#a7583e] px-5 py-20 text-center text-white sm:px-8 sm:py-24">
         <div className="mx-auto max-w-[840px]">
-          <p className="eyebrow text-[#f0d1c2]">Ready when you are</p>
+          <p className="eyebrow text-[#f0d1c2]">
+            {business.copy.finalCta.eyebrow}
+          </p>
           <h2 className="display mt-5 text-[clamp(3rem,7vw,6rem)] leading-[1.05]">
-            Let’s make it a<br />
-            <em>good hair day.</em>
+            {business.copy.finalCta.headline}
+            <br />
+            <em>{business.copy.finalCta.emphasis}</em>
           </h2>
           <p className="mx-auto mt-6 max-w-[490px] text-sm leading-7 text-[#f6e4da]">
-            A quick WhatsApp message is all it takes. Tell us what you have in
-            mind and we’ll take it from there.
+            {business.copy.finalCta.intro}
           </p>
           <BookingLink light className="mt-8">
             Book on WhatsApp
@@ -617,7 +565,7 @@ export default function Home() {
               © {new Date().getFullYear()} {business.name}. Fictional website
               demo.
             </span>
-            <span>Made for the small moments that matter.</span>
+            <span>{business.copy.footerNote}</span>
           </div>
         </div>
       </footer>
