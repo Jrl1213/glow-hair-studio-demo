@@ -1,12 +1,13 @@
 /**
  * EDIT THIS FILE to reuse the demo for another business.
- * The WhatsApp number below is a placeholder. Replace it before using this site
- * to accept real bookings. Use country code 60, with no +, spaces, or leading 0.
+ * The WhatsApp number below is the demo owner's, so test bookings reach a real
+ * person. Replace it with the business's number before using this site for
+ * real bookings. Use country code 60, with no +, spaces, or leading 0.
  */
 export const business = {
   name: "Glow Hair Studio",
   category: "Hair Salon",
-  whatsappNumber: "60123456789", // PLACEHOLDER MALAYSIAN NUMBER — replace this one value.
+  whatsappNumber: "60187783182", // Demo owner's number — replace this one value for a real business.
   whatsappMessage:
     "Hi Glow Hair Studio! I found your website and would like to make a booking.",
   tagline: "Good hair days start here.",
